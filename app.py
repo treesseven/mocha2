@@ -27,11 +27,12 @@ class User(Document):
 
 @app.route('/')
 def film():
-    return render_template('mocha.html')
+    return render_template('mocha.html', food = Food.objects)
 
 @app.route('/mocha2', methods = ["GET", "POST"])
 def add():
     if request.method == "GET":
+
         return render_template("mocha2.html")
     elif request.method == "POST":
         #print(request.form["name"], request.form["email"])
