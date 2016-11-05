@@ -20,10 +20,8 @@ class Food(Document):
     img = StringField()
     desc = StringField()
 
-class User(Document):
-    name = StringField()
-    email = StringField()
-    food = EmbeddedDocumentField("Food")
+food = Food.objects
+print(food[0].name)
 
 @app.route('/')
 def film():
@@ -36,9 +34,9 @@ def add():
         return render_template("mocha2.html")
     elif request.method == "POST":
         #print(request.form["name"], request.form["email"])
-        user = User(name = request.form["name"], email = request.form["email"])
-        user.food = Food(name = request.form["food_name"], img = request.form["image"], desc = request.form["desc"])
-        user.save()
+        #user = User(name = request.form["name"], email = request.form["email"])
+        food = Food(name = request.form["food_name"], img = request.form["image"], desc = request.form["desc"])
+        food.save()
         return "Thanks for sharing your experience with me, your food might be archived in my foodlist portfolio :D"
 
 if __name__ == '__main__':

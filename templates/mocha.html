@@ -104,18 +104,19 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
       </div>
     </div>
   </div>
-
-    {% for i in range((food|length) // 3) %}
+    {% for i in range((food|length) // 3 + 1) %}
         <div class="w3-row-padding">
 
-          {% for j in range(3) %}
-            <div class="w3-third w3-container w3-margin-bottom">
-              <img src="{{ food[i*j].img }}" alt="Norway" style="width:100%" class="w3-hover-opacity">
-              <div class="w3-container w3-white">
-                <p><b>{{ food[i*j].name }}</b></p>
-                <p>{{ food[i*j].desc }}</p>
-              </div>
-            </div>
+          {% for j in range(i * 3, i * 3 + 3) %}
+            {% if food|length > j %}
+                <div class="w3-third w3-container w3-margin-bottom">
+                  <img src="{{ food[j]["img"]}}" alt="Norway" style="width:100%" class="w3-hover-opacity">
+                  <div class="w3-container w3-white">
+                    <p><b>{{ food[j]["name"] }}</b></p>
+                    <p>{{ food[j]["desc"] }}</p>
+                  </div>
+                </div>
+            {% endif %}
           {% endfor %}
 
         </div>
