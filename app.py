@@ -24,21 +24,21 @@ food = Food.objects
 print(food[0].name)
 
 @app.route('/', methods = ["GET", "POST"])
-def film():
+def food ():
     if request.method == "GET":
-        return render_template("mocha.html", food = Food.objects)
-    if request.method == "POST":
+        return render_template("index.html", food = Food.objects)
+    elif request.method == "POST":
         # print(request.form["name"], request.form["email"])
         # user = User(name = request.form["name"], email = request.form["email"])
         food = Food(name=request.form["food_name"], img=request.form["image"], desc=request.form["desc"])
         food.save()
-        return render_template('mocha.html', food = Food.objects)
+        return render_template("index.html", food = Food.objects)
 
 # @app.route('/mocha2', methods = ["GET", "POST"])
 # def add():
 #     if request.method == "GET":
 #
-#         return render_template("mocha2.html")
+#         return render_template("index.html")
 #     elif request.method == "POST":
 #         #print(request.form["name"], request.form["email"])
 #         #user = User(name = request.form["name"], email = request.form["email"])
