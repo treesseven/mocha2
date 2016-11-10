@@ -243,20 +243,28 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
       </div>
     </div>
     <hr class="w3-opacity">
-    <form>
+    <form method = "post" action = "{{ url_for("film") }}" >
       <div class="w3-group">
-        <label>Name</label>
-        <input class="w3-input w3-border" type="text">
+        <label>Your Name</label>
+        <input name = "name" class="w3-input w3-border" type="text">
       </div>
       <div class="w3-group">
         <label>Email</label>
-        <input class="w3-input w3-border" type="text">
+        <input name = "email"class="w3-input w3-border" type="text">
       </div>
       <div class="w3-group">
-        <label>Subject</label>
-        <input class="w3-input w3-border" type="text">
+        <label>Whats your favourite food you would like to share</label>
+        <input name="food_name" class="w3-input w3-border" type="text">
       </div>
-      <button type="button" class="w3-btn w3-padding-large w3-margin-bottom"><i class="fa fa-paper-plane w3-margin-right"></i>Send Message</button>
+      <div class="w3-group">
+        <label>How about an image?(Leave a link here)</label>
+        <input name="image" class="w3-input w3-border" type="text">
+      </div>
+      <div class="w3-group">
+        <label>Tell me a little bit about that dishes</label>
+        <input name="desc" class="w3-input w3-border" type="text">
+      </div>
+      <button type="button" class="w3-btn w3-padding-large w3-margin-bottom"><i class="fa fa-paper-plane w3-margin-right"></i>Click here to submit</button>
     </form>
   </div>
 
